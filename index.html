@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ramcharan Singh — AI &amp; ML Engineer · Data Analyst</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Cabinet+Grotesk:wght@300;400;500;700;800&display=swap" rel="stylesheet"/>
+
+  <!-- Three.js CDN (must load BEFORE threejs-bg.js) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- ══ CSS FILES — ORDER MATTERS ══ -->
+  <link rel="stylesheet" href="css/base.css"/>
+  <link rel="stylesheet" href="css/nav.css"/>
+  <link rel="stylesheet" href="css/home.css"/>
+  <link rel="stylesheet" href="css/about.css"/>
+  <link rel="stylesheet" href="css/experience.css"/>
+  <link rel="stylesheet" href="css/projects.css"/>
+  <link rel="stylesheet" href="css/contact.css"/>
+</head>
+<body>
+
+<!-- Custom Cursor -->
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- Three.js Canvas -->
+<canvas id="hero-canvas"></canvas>
+
+<!-- ══════════════════════════════════════
+     NAVIGATION
+══════════════════════════════════════ -->
+<nav>
+  <a class="nav-logo" href="#" onclick="showPage('home'); return false;">
+    <span class="nav-logo-dot"></span>Ramcharan Singh
+  </a>
+  <ul class="nav-links">
+    <li><a onclick="showPage('home')"        id="nav-home"        class="active">Home</a></li>
+    <li><a onclick="showPage('about')"       id="nav-about">About</a></li>
+    <li><a onclick="showPage('experience')"  id="nav-experience">Experience</a></li>
+    <li><a onclick="showPage('projects')"    id="nav-projects">Projects</a></li>
+    <li><a onclick="showPage('contact')"     id="nav-contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ══════════════════════════════════════
+     HOME SECTION
+══════════════════════════════════════ -->
+<section id="home" class="active">
+
+  <!-- Hero -->
+  <div class="home-hero">
+
+    <!-- Left: Text -->
+    <div class="home-text">
+      <div class="home-eyebrow fu d1">
+        <span class="eyebrow-line"></span>AI · ML · Data Analyst
+      </div>
+      <h1 class="fu d2">Hello, I'm<br/><span class="h1-name">Ramcharan Singh</span></h1>
+      <p class="role fu d3">
+        Results-driven <strong>AI &amp; ML Engineer &amp; Data Analyst</strong> building
+        production-grade computer vision and LLM applications. B.Tech CSE at IIIT
+        Vadodara — turning data into intelligent systems.
+      </p>
+      <p class="tagline fu d3">The future is built by code!</p>
+      <div class="home-ctas fu d4">
+        <a class="btn btn-primary"
+           href="https://drive.google.com/file/d/1urDo8MpBOy-Psrr_lp-l1N3ATR5bm1vA/view?usp=sharing"
+           target="_blank">⬇ Download CV</a>
+        <a class="btn btn-ghost" onclick="showPage('projects')">View Projects →</a>
+      </div>
+      <div class="stats-row fu d5">
+        <div>
+          <div class="stat-num" data-target="15" data-suffix="+">0+</div>
+          <div class="stat-label">Technologies<br/>mastered</div>
+        </div>
+        <div>
+          <div class="stat-num" data-target="29" data-suffix="+">0+</div>
+          <div class="stat-label">GitHub<br/>repositories</div>
+        </div>
+        <div>
+          <div class="stat-num" data-target="317" data-suffix="+">0+</div>
+          <div class="stat-label">Github<br/>Contributions</div>
+        </div>
+        <div>
+          <div class="stat-num" data-target="92" data-suffix="%">0%</div>
+          <div class="stat-label">Model accuracy<br/>(YOLOv11+SAM)</div>
+        </div>
+        <div>
+          <div class="stat-num" data-target="3" data-suffix=".1×">0×</div>
+          <div class="stat-label">Latency<br/>improvement</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Card -->
+    <div class="hero-card-wrap fu d3">
+      <div class="hero-card" id="hero-card">
+        <div class="hero-card-inner">
+          <img class="hero-photo"
+               src="assets/profile.jpg"
+               alt="Ramcharan Singh"
+               onerror="this.style.display='none';
+                        var ph=document.createElement('div');
+                        ph.style.cssText='width:100%;height:340px;display:flex;align-items:center;justify-content:center;font-size:5rem;position:relative;z-index:1;';
+                        ph.textContent='👤';
+                        this.parentElement.insertBefore(ph,this);"/>
+          <div class="hero-photo-overlay"></div>
+          <div class="hero-card-info">
+            <div class="hero-name-card">Ramavath Ramcharan Singh</div>
+            <div class="hero-role-card">AI &amp; ML Engineer · Data Analyst</div>
+            <div class="hero-badges">
+              <span class="hero-badge badge-ai">AI Engineer</span>
+              <span class="hero-badge badge-ml">ML</span>
+              <span class="hero-badge badge-da">Data Analyst</span>
+            </div>
+          </div>
+        </div>
+        <div class="available-pill">
+          <span class="pill-dot"></span>Open to opportunities
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /home-hero -->
+
+  <!-- GitHub Profile Section -->
+  <div class="github-section">
+    <span class="gh-section-label">Open Source Activity</span>
+    <h2 class="gh-section-title">GitHub Profile ✨</h2>
+
+    <!-- Banner row -->
+    <div class="gh-banner-row">
+      <div class="gh-banner">
+        <img src="https://firebasestorage.googleapis.com/v0/b/flexi-coding.appspot.com/o/dempgi7-520f8d5f-63d4-4453-8822-dbc149ae27f8.gif?alt=media&token=91c0c7b2-93c3-4029-b011-1a8703c5730d" alt="Coding"/>
+        <div class="gh-banner-overlay">
+          <div class="gh-banner-text">👋 Hi, I'm Ramcharan Singh Ramavath</div>
+          <div class="gh-banner-sub">Final-Year CSE Student · IIIT Vadodara</div>
+        </div>
+      </div>
+      <div class="gh-gif-card">
+        <img src="https://cdn.dribbble.com/users/1162077/screenshots/3848914/programmer.gif" alt="Programmer"/>
+        <div class="gh-gif-card-label">⌨ Always coding</div>
+      </div>
+    </div>
+
+    <!-- Currently -->
+    <div class="gh-currently">
+      <div class="gh-curr-item">
+        <div class="gh-curr-emoji">🔭</div>
+        <div><div class="gh-curr-label">Currently working on</div><div class="gh-curr-val">AI &amp; ML Projects</div></div>
+      </div>
+      <div class="gh-curr-item">
+        <div class="gh-curr-emoji">🌱</div>
+        <div><div class="gh-curr-label">Currently learning</div><div class="gh-curr-val">Agentic AI · Advanced LangChain · MLOps</div></div>
+      </div>
+      <div class="gh-curr-item">
+        <div class="gh-curr-emoji">💬</div>
+        <div><div class="gh-curr-label">Ask me about</div><div class="gh-curr-val">Python, AI/ Machine Learning Fundamentals, Deep Learning & Neural Networks, Power BI, Excel, Computer Vision, C/C++, MySQL, NLP, LLMs, Agentic AI</div></div>
+      </div>
+      <div class="gh-curr-item">
+        <div class="gh-curr-emoji">📫</div>
+        <div><div class="gh-curr-label">Reach me at</div><div class="gh-curr-val">ramcharansinghramavath@gmail.com</div></div>
+      </div>
+    </div>
+
+    <!-- Languages & Tools -->
+    <div class="gh-tools-block">
+      <div class="gh-tools-title">Languages &amp; Tools</div>
+      <div class="gh-tools-grid">
+        <div class="gh-tool"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-original.svg" alt="C"/><span>C</span></div>
+        <div class="gh-tool"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-original.svg" alt="C++"/><span>C++</span></div>
+        <div class="gh-tool"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python"/><span>Python</span></div>
+        <div class="gh-tool"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="MySQL"/><span>MySQL</span></div>
+        <div class="gh-tool"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="HTML5"/><span>HTML5</span></div>
+        <div class="gh-tool"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="CSS3"/><span>CSS3</span></div>
+        <div class="gh-tool"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="JS"/><span>JavaScript</span></div>
+        <div class="gh-tool"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vscode/vscode-original.svg" alt="VSCode"/><span>VS Code</span></div>
+        <div class="gh-tool"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/jupyter/jupyter-original.svg" alt="Jupyter"/><span>Jupyter</span></div>
+        <div class="gh-tool"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg" alt="MongoDB"/><span>MongoDB</span></div>
+        <div class="gh-tool"><img src="https://img.icons8.com/color/48/microsoft-sql-server.png" alt="SQL Server"/><span>SQL Server</span></div>
+        <div class="gh-tool"><img src="https://img.icons8.com/color/48/database.png" alt="Vector Store"/><span>Vector Stores</span></div>
+        <div class="gh-tool"><img src="https://img.icons8.com/color/48/data-configuration.png" alt="Vector DB"/><span>Vector Databases</span></div>
+      </div>
+
+      <!-- AI / ML Tools -->
+      <div class="gh-tools-block">
+        <div class="gh-tools-title">Data Analytics, AI &amp; Machine Learning Tools</div>
+        <div class="gh-tools-grid">
+          <div class="gh-tool"><img src="https://img.icons8.com/color/48/power-bi.png" alt="Power BI"/><span>Power BI</span></div>
+          <div class="gh-tool"><img src="https://img.icons8.com/color/48/microsoft-excel-2019--v1.png" alt="Excel"/><span>Excel</span></div>
+          <div class="gh-tool"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python"/><span>Python</span></div>
+          <div class="gh-tool"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/r/r-original.svg" alt="R"/><span>R</span></div>
+          <div class="gh-tool"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/matplotlib/matplotlib-original.svg" alt="Matplotlib"/><span>Matplotlib</span></div>
+          <div class="gh-tool"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/numpy/numpy-original.svg" alt="NumPy"/><span>NumPy</span></div>
+          <div class="gh-tool"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pandas/pandas-original.svg" alt="Pandas"/><span>Pandas</span></div>
+          <div class="gh-tool"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/plotly/plotly-original.svg" alt="Plotly"/><span>Plotly</span></div>
+          <div class="gh-tool"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/keras/keras-original.svg" alt="Keras"/><span>Keras</span></div>
+          <div class="gh-tool"><img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" alt="Scikit-learn"/><span>Scikit-learn</span></div>
+          <div class="gh-tool"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow"/><span>TensorFlow</span></div>
+          <div class="gh-tool"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/opencv/opencv-original.svg" alt="OpenCV"/><span>OpenCV</span></div>
+          <div class="gh-tool"><img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/pytorch.svg" alt="PyTorch" style="filter:invert(0.7) sepia(1) hue-rotate(-30deg) saturate(3)"/><span>PyTorch</span></div>
+          <div class="gh-tool"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" alt="Git"/><span>Git</span></div>
+          <div class="gh-tool"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg" alt="GitHub" style="filter:invert(1)"/><span>GitHub</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Connect -->
+    <div class="gh-connect">
+      <div class="gh-connect-title">Connect with me</div>
+      <div class="gh-socials">
+        <a class="gh-social" href="https://github.com/RamcharanSinghRamavath" target="_blank">
+          <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg" alt="" style="filter:invert(1)"/>GitHub</a>
+        <a class="gh-social" href="https://www.linkedin.com/in/ramavath-ramcharan-singh29/" target="_blank">
+          <img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt=""/>LinkedIn</a>
+        <a class="gh-social" href="https://leetcode.com/u/Ramcharan29/" target="_blank">
+          <img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/leet-code.svg" alt=""/>LeetCode</a>
+        <a class="gh-social" href="https://www.instagram.com/ramcharan_2907" target="_blank">
+          <img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt=""/>Instagram</a>
+        <a class="gh-social" href="https://twitter.com/ramcharanrsr" target="_blank">
+          <img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt=""/>Twitter</a>
+      </div>
+    </div>
+  </div><!-- /github-section -->
+
+  <div class="scroll-hint">
+    <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+    <span>Scroll</span>
+  </div>
+
+</section><!-- /home -->
+
+<!-- ══════════════════════════════════════
+     ABOUT SECTION
+══════════════════════════════════════ -->
+<section id="about">
+  <div class="page-wrap">
+    <div class="page-header">
+      <span class="label">Who I am</span>
+      <h2>About Me</h2>
+    </div>
+
+    <div class="about-tabs">
+      <button class="tab-btn active" onclick="showTab('tab-about', this)">About</button>
+      <button class="tab-btn"        onclick="showTab('tab-skills', this)">Skills</button>
+      <button class="tab-btn"        onclick="showTab('tab-languages', this)">Languages</button>
+      <button class="tab-btn"        onclick="showTab('tab-edu', this)">Education</button>
+    </div>
+
+    <!-- About Tab -->
+    <div id="tab-about" class="tab-content active">
+      <div class="about-grid">
+        <div class="about-bio">
+          <p>I'm <strong>Ramavath Ramcharan Singh</strong> — an AI &amp; ML Engineer passionate about building intelligent, impactful solutions.</p>
+          <p>At <strong>Coder Edge Technologies</strong>, I built a production ML pipeline from scratch achieving <strong>~92% segmentation accuracy</strong> on 1,000+ real car videos, and cut inference latency by <strong>3.1× (19ms → 6ms/frame)</strong>.</p>
+          <p>Passionate about <strong>LLMs, LangChain, data analytics, NLP, Agentic AI</strong> — building natural language interfaces that make data accessible to everyone.</p>
+          <p>I believe technology should be <strong>smart, ethical, and impactful</strong> — and I want to be part of building that future.</p>
+        </div>
+        <ul class="info-list">
+          <li><span class="info-key">Name</span>    <span class="info-val">Ramavath Ramcharan Singh</span></li>
+          <li><span class="info-key">Phone</span>   <span class="info-val">+91 9440457629</span></li>
+          <li><span class="info-key">Email</span>   <span class="info-val"><a href="mailto:ramcharansinghramavath@gmail.com">ramcharansinghramavath@gmail.com</a></span></li>
+          <li><span class="info-key">Location</span><span class="info-val">Hyderabad, India</span></li>
+          <li><span class="info-key">GitHub</span>  <span class="info-val"><a href="https://github.com/RamcharanSinghRamavath" target="_blank">RamcharanSinghRamavath ↗</a></span></li>
+          <li><span class="info-key">LinkedIn</span><span class="info-val"><a href="https://www.linkedin.com/in/ramavath-ramcharan-singh29/" target="_blank">ramavath-ramcharan-singh29 ↗</a></span></li>
+          <li><span class="info-key">LeetCode</span><span class="info-val"><a href="https://leetcode.com/u/Ramcharan29/" target="_blank">Ramcharan29 ↗</a></span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Skills Tab -->
+    <div id="tab-skills" class="tab-content">
+      <div class="skills-grid">
+        <div class="skill-card"><div class="skill-card-icon">🤖</div><h4>AI / ML</h4><div class="skill-tags"><span class="skill-tag">PyTorch</span><span class="skill-tag">TensorFlow</span><span class="skill-tag">Scikit-learn</span><span class="skill-tag">Keras</span><span class="skill-tag">YOLOv11</span></div></div>
+        <div class="skill-card"><div class="skill-card-icon">🧠</div><h4>LLMs &amp; NLP</h4><div class="skill-tags"><span class="skill-tag">LangChain</span><span class="skill-tag">Hugging Face</span><span class="skill-tag">NLTK</span><span class="skill-tag">spaCy</span><span class="skill-tag">Prompt Eng.</span></div></div>
+        <div class="skill-card"><div class="skill-card-icon">📊</div><h4>Data Analysis</h4><div class="skill-tags"><span class="skill-tag">NumPy</span><span class="skill-tag">Pandas</span><span class="skill-tag">Matplotlib</span><span class="skill-tag">Plotly</span><span class="skill-tag">SciPy</span></div></div>
+        <div class="skill-card"><div class="skill-card-icon">📈</div><h4>BI &amp; Visualization</h4><div class="skill-tags"><span class="skill-tag">Power BI</span><span class="skill-tag">Excel</span><span class="skill-tag">Seaborn</span><span class="skill-tag">Streamlit</span></div></div>
+        <div class="skill-card"><div class="skill-card-icon">💻</div><h4>Languages</h4><div class="skill-tags"><span class="skill-tag">Python</span><span class="skill-tag">R</span><span class="skill-tag">SQL</span><span class="skill-tag">C</span><span class="skill-tag">C++</span><span class="skill-tag">HTML/CSS</span></div></div>
+        <div class="skill-card"><div class="skill-card-icon">🗄️</div><h4>Databases</h4><div class="skill-tags"><span class="skill-tag">MySQL</span><span class="skill-tag">MongoDB</span><span class="skill-tag">SQL Server</span><span class="skill-tag">Vector Stores</span><span class="skill-tag">Vector Databases</span></div></div>
+      </div>
+    </div>
+
+    <!-- Languages Tab -->
+    <div id="tab-languages" class="tab-content">
+      <p style="color:var(--muted);margin-bottom:1.5rem;font-size:0.9rem;">Programming & analytics languages I work with daily.</p>
+      <div class="lang-grid">
+        <div class="lang-item"><div class="lang-icon">🐍</div><div style="flex:1"><div class="lang-name">Python</div><div class="lang-bar-bg"><div class="lang-bar" style="width:95%;background:linear-gradient(90deg,#7C6FFF,#9b6bff)"></div></div><div class="lang-level">Expert · AI/ML, Data Analysis, scripting</div></div></div>
+        <div class="lang-item"><div class="lang-icon">🗃️</div><div style="flex:1"><div class="lang-name">SQL</div><div class="lang-bar-bg"><div class="lang-bar" style="width:85%;background:linear-gradient(90deg,#FF6B9D,#ff4d8a)"></div></div><div class="lang-level">Advanced · MySQL, SQL Server, queries, schema</div></div></div>
+        <div class="lang-item"><div class="lang-icon">📊</div><div style="flex:1"><div class="lang-name">R</div><div class="lang-bar-bg"><div class="lang-bar" style="width:75%;background:linear-gradient(90deg,#276DC3,#1a55a0)"></div></div><div class="lang-level">Advanced · Statistical analysis, data viz</div></div></div>
+        <div class="lang-item"><div class="lang-icon">⚙️</div><div style="flex:1"><div class="lang-name">C / C++</div><div class="lang-bar-bg"><div class="lang-bar" style="width:78%;background:linear-gradient(90deg,#00E5FF,#00b8cc)"></div></div><div class="lang-level">Proficient · DSA, systems</div></div></div>
+        <div class="lang-item"><div class="lang-icon">⚛️</div><div style="flex:1"><div class="lang-name">HTML / CSS</div><div class="lang-bar-bg"><div class="lang-bar" style="width:80%;background:linear-gradient(90deg,#E34F26,#c0440f)"></div></div><div class="lang-level">Advanced · Dashboards, reporting UI</div></div></div>
+        <div class="lang-item"><div class="lang-icon">🌐</div><div style="flex:1"><div class="lang-name">JavaScript</div><div class="lang-bar-bg"><div class="lang-bar" style="width:65%;background:linear-gradient(90deg,#F0DB4F,#e6c200)"></div></div><div class="lang-level">Intermediate · Interactive data dashboards</div></div></div>
+      </div>
+    </div>
+
+    <!-- Education Tab -->
+    <div id="tab-edu" class="tab-content">
+      <div class="edu-timeline">
+        <div class="edu-item">
+          <div class="edu-year">Nov 2022 – Present</div>
+          <div class="edu-name">B.Tech — Computer Science &amp; Engineering</div>
+          <div class="edu-place">Indian Institute of Information Technology Vadodara, Gujarat</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-year">June 2020 – May 2022</div>
+          <div class="edu-name">Class XII — Intermediate (MPC)</div>
+          <div class="edu-place">Sri Chaitanya Junior College, Miyapur, Hyderabad</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section><!-- /about -->
+
+<!-- ══════════════════════════════════════
+     EXPERIENCE SECTION
+══════════════════════════════════════ -->
+<section id="experience">
+  <div class="page-wrap">
+    <div class="page-header">
+      <span class="label">Where I've worked</span>
+      <h2>Experience</h2>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-top">
+        <div>
+          <div class="exp-title">AI and Machine Learning Intern</div>
+          <div class="exp-company">
+            Coder Edge Technologies Pvt. Ltd., Ahmedabad &nbsp;·&nbsp;
+            <a href="https://drive.google.com/file/d/1urDo8MpBOy-Psrr_lp-l1N3ATR5bm1vA/view?usp=sharing" target="_blank">View Certificate ↗</a>
+          </div>
+        </div>
+        <span class="exp-badge">May 2025 – July 2025</span>
+      </div>
+      <ul class="exp-list">
+        <li>Sole builder of a <strong>production ML pipeline (YOLOv11 + SAM)</strong> that detects and pixel-segments vehicle scratches/dents from raw video — delivered <span class="metric-chip">~92% accuracy</span> and <span class="metric-chip">&lt;5% FP rate</span> on 1,000+ real-world car videos; built with Python &amp; PyTorch from zero codebase.</li>
+        <li><strong>Optimized inference latency by <span class="metric-chip">3.1×</span></strong> — <span class="metric-chip">19ms → 6ms/frame</span> via Linux migration, OpenCV preprocessing, refactoring, eliminating redundant SAM calls. 600-frame video processes in under 2 minutes with zero hardware upgrades.</li>
+        <li>Deployed a <strong>full-stack ML system end-to-end</strong>: FastAPI backend (video upload → inference → best-frame extraction → COCO JSON polygon export) + React.js frontend — Postman-validated all endpoints; UI confirmed on Chrome, Safari, Firefox.</li>
+      </ul>
+    </div>
+
+  </div>
+</section><!-- /experience -->
+
+<!-- ══════════════════════════════════════
+     PROJECTS SECTION
+══════════════════════════════════════ -->
+<section id="projects">
+  <div class="page-wrap">
+    <div class="page-header">
+      <span class="label">What I've built</span>
+      <h2>My Projects</h2>
+    </div>
+
+    <div class="projects-grid">
+
+      <!-- LLM NL→SQL -->
+      <div class="project-card">
+        <div class="project-thumb">
+          <img src="assets/Smart_assistant_for_SQL_queries.png" alt="NL SQL Assistant"/>
+        </div>
+        <div class="project-body">
+          <div class="project-title">LLM-Powered NL → SQL Assistant</div>
+          <div class="project-desc">End-to-end NLP system translating plain English into schema-aware SQL. LangChain SQL agent + MySQL with dynamic schema introspection — 40%+ fewer query errors vs static prompting.</div>
+          <div class="project-footer">
+            <div class="project-tags"><span class="project-tag">Python</span><span class="project-tag">LangChain</span><span class="project-tag">MySQL</span><span class="project-tag">LLMs</span><span class="project-tag">Streamlit</span></div>
+            <a class="project-link" href="https://github.com/RamcharanSinghRamavath/LLM-SQL-Project" target="_blank">GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Smart Visual Assist -->
+      <div class="project-card">
+        <div class="project-thumb">
+          <img src="assets/Vehicle_damage_detection_in_action.png" alt="Vehicle Damage Detection"/>
+        </div>
+        <div class="project-body">
+          <div class="project-title">Smart Visual Assist</div>
+          <div class="project-desc">Production ML pipeline (YOLOv11 + SAM) detecting and pixel-segmenting car scratches/dents from video. ~92% accuracy on 1,000+ real-world videos. 3.1× latency improvement.</div>
+          <div class="project-footer">
+            <div class="project-tags"><span class="project-tag">PyTorch</span><span class="project-tag">YOLOv11</span><span class="project-tag">SAM</span><span class="project-tag">FastAPI</span><span class="project-tag">React.js</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Employee Performance Analysis -->
+      <div class="project-card">
+        <div class="project-thumb">
+          <img src="assets/Employee_Performance_Analysis.png" alt="Employee Performance Analysis"/>
+        </div>
+        <div class="project-body">
+          <div class="project-title">Employee Performance Analysis</div>
+          <div class="project-desc">Data science project — EDA, visualization, and ML-based predictive modeling on employee productivity data, with a Streamlit dashboard for interactive insights.</div>
+          <div class="project-footer">
+            <div class="project-tags"><span class="project-tag">Python</span><span class="project-tag">Scikit-learn</span><span class="project-tag">Pandas</span><span class="project-tag">Streamlit</span></div>
+            <a class="project-link" href="https://github.com/RamcharanSinghRamavath/Employee-Performance-Analysis" target="_blank">GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Weather Forecast -->
+      <div class="project-card">
+        <div class="project-thumb">
+          <img src="assets/Weather_Forecast_Application.png" alt="Weather Forecast Application"/>
+        </div>
+        <div class="project-body">
+          <div class="project-title">Weather Forecast Application</div>
+          <div class="project-desc">Real-time weather platform with current conditions, hourly &amp; weekly forecasts, interactive UI and location-based search using live weather APIs.</div>
+          <div class="project-footer">
+            <div class="project-tags"><span class="project-tag">HTML</span><span class="project-tag">CSS</span><span class="project-tag">JavaScript</span><span class="project-tag">Weather API</span></div>
+            <a class="project-link" href="https://github.com/RamcharanSinghRamavath/Weather-Fore-Cast-Application" target="_blank">GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- IPL Win Predictor -->
+      <div class="project-card">
+        <div class="project-thumb">
+          <img src="assets/IPL_Win_Prediction.png" alt="IPL Win Predictor"/>
+        </div>
+        <div class="project-body">
+          <div class="project-title">IPL Win Predictor</div>
+          <div class="project-desc">ML web app predicting IPL match winners using 16 years of historical data (2008–2024). Trained on ball-by-ball deliveries + match datasets with classification models — deployed live on Streamlit.</div>
+          <div class="project-footer">
+            <div class="project-tags"><span class="project-tag">Python</span><span class="project-tag">Scikit-learn</span><span class="project-tag">Streamlit</span><span class="project-tag">Pandas</span></div>
+            <a class="project-link" href="https://github.com/RamcharanSinghRamavath/IPL-Win-Prediction" target="_blank">GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tennis Match Prediction -->
+      <div class="project-card">
+        <div class="project-thumb">
+          <img src="assets/Tennis_Match_Prediction.png" alt="Tennis Match Prediction"/>
+        </div>
+        <div class="project-body">
+          <div class="project-title">Tennis Match Prediction</div>
+          <div class="project-desc">ML classification app using a Decision Tree Classifier to predict tennis playability based on weather conditions — Outlook, Temperature, Humidity, and Wind — with an interactive Streamlit interface.</div>
+          <div class="project-footer">
+            <div class="project-tags"><span class="project-tag">Python</span><span class="project-tag">Scikit-learn</span><span class="project-tag">Streamlit</span><span class="project-tag">Decision Tree</span></div>
+            <a class="project-link" href="https://github.com/RamcharanSinghRamavath/Tennis-Match-Prediction" target="_blank">GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Netflix Movie Data Analysis -->
+      <div class="project-card">
+        <div class="project-thumb">
+          <img src="assets/Netflix_Movie_Data_ Analysis.png" alt="Netflix Movie Data Analysis"/>
+        </div>
+        <div class="project-body">
+          <div class="project-title">Netflix Movie Data Analysis</div>
+          <div class="project-desc">Exploratory data analysis on Netflix's movie catalog — uncovering genre distribution, viewer popularity trends, and yearly release patterns across 19 genres using data visualization techniques.</div>
+          <div class="project-footer">
+            <div class="project-tags"><span class="project-tag">Python</span><span class="project-tag">Pandas</span><span class="project-tag">Matplotlib</span><span class="project-tag">Seaborn</span></div>
+            <a class="project-link" href="https://github.com/RamcharanSinghRamavath/Netflix-Movie-Data-Analysis" target="_blank">GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI Research Report Generator -->
+      <div class="project-card">
+        <div class="project-thumb">
+          <img src="assets/AI_Research_Report_Generator.png" alt="AI Research Report Generator"/>
+        </div>
+        <div class="project-body">
+          <div class="project-title">AI Research Report Generator</div>
+          <div class="project-desc">AI-powered tool that automates research report generation — takes a topic as input and produces structured, detailed reports using large language models with intelligent content organization.</div>
+          <div class="project-footer">
+            <div class="project-tags"><span class="project-tag">Python</span><span class="project-tag">LLM</span><span class="project-tag">Streamlit</span><span class="project-tag">AI</span></div>
+            <a class="project-link" href="https://github.com/RamcharanSinghRamavath/AI-Research-Report-Generator" target="_blank">GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /projects-grid -->
+  </div><!-- /page-wrap -->
+</section><!-- /projects -->
+
+<!-- ══════════════════════════════════════
+     CONTACT SECTION
+══════════════════════════════════════ -->
+<section id="contact">
+  <div class="page-wrap" style="max-width:880px">
+    <div class="page-header">
+      <span class="label">Get in touch</span>
+      <h2>Contact Me</h2>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>Let's build something great</h3>
+        <p>I'm open to AI/ML engineering, data analyst roles, and exciting collaborations. Always happy to connect!</p>
+        <div class="contact-row">
+          <div class="contact-icon">📍</div>
+          <div><div class="contact-lbl">Location</div><div class="contact-val">Hyderabad, Telangana, India</div></div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-icon">📧</div>
+          <div><div class="contact-lbl">Email</div><div class="contact-val"><a href="mailto:ramcharansinghramavath@gmail.com">ramcharansinghramavath@gmail.com</a></div></div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-icon">📞</div>
+          <div><div class="contact-lbl">Phone</div><div class="contact-val">+91 9440457629</div></div>
+        </div>
+        <div class="socials">
+          <a class="social-link" href="https://github.com/RamcharanSinghRamavath" target="_blank">⌨ GitHub</a>
+          <a class="social-link" href="https://www.linkedin.com/in/ramavath-ramcharan-singh29/" target="_blank">💼 LinkedIn</a>
+          <a class="social-link" href="https://leetcode.com/u/Ramcharan29/" target="_blank">💡 LeetCode</a>
+          <a class="social-link" href="https://twitter.com/ramcharanrsr" target="_blank">🐦 Twitter</a>
+        </div>
+      </div>
+
+      <form class="contact-form" action="https://formspree.io/f/meernjlv" method="POST">
+  <div class="form-group">
+    <label>Your Name</label>
+    <input type="text" name="name" placeholder="Your name" required/>
+  </div>
+  <div class="form-group">
+    <label>Email</label>
+    <input type="email" name="email" placeholder="your@email.com" required/>
+  </div>
+  <div class="form-group">
+    <label>Message</label>
+    <textarea name="message" placeholder="Hi Ramcharan, I'd love to work with you on..." required></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Send Message ✉</button>
+  <div id="form-ok">✅ Message sent! I'll get back to you soon.</div>
+</form>
+
+   
+    </div>
+
+  </div>
+</section><!-- /contact -->
+
+<!-- Footer -->
+<footer>
+  <p>
+    © 2025 <strong>Ramavath Ramcharan Singh</strong> &nbsp;·&nbsp;
+    <a href="https://github.com/RamcharanSinghRamavath" target="_blank">GitHub</a> &nbsp;·&nbsp;
+    <a href="https://www.linkedin.com/in/ramavath-ramcharan-singh29/" target="_blank">LinkedIn</a> &nbsp;·&nbsp;
+    Built with passion✨
+  </p>
+</footer>
+
+<!-- ══ JS FILES — loaded at bottom so DOM is ready ══ -->
+<script src="js/navigation.js"></script>
+<script src="js/cursor.js"></script>
+<script src="js/animations.js"></script>
+<script src="js/form.js"></script>
+<script src="js/threejs-bg.js"></script>
+
+</body>
+</html>

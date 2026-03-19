@@ -1,0 +1,230 @@
+/* ==============================================
+   base.css
+   CSS variables, reset, global, buttons, footer
+   ============================================== */
+
+:root {
+  --bg:           #060610;
+  --surface:      #0d0d1f;
+  --surface2:     #12122a;
+  --glass:        rgba(255,255,255,0.03);
+  --glass-border: rgba(255,255,255,0.06);
+  --accent:       #7C6FFF;
+  --accent2:      #FF6B9D;
+  --accent3:      #00E5FF;
+  --text:         #dcdcf0;
+  --muted:        #5a5a7a;
+  --white:        #ffffff;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Cabinet Grotesk', sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* ── Custom Cursor ── */
+#cursor {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width .2s, height .2s;
+  mix-blend-mode: screen;
+}
+#cursor-ring {
+  position: fixed;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(124,111,255,0.4);
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: all .15s ease;
+}
+
+/* ── Three.js Canvas ── */
+#hero-canvas {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ── Sections ── */
+section {
+  display: none;
+  min-height: 100vh;
+  padding-top: 70px;
+  position: relative;
+  z-index: 1;
+}
+section.active { display: block; }
+#home          { display: none; }
+#home.active   { display: block; }
+
+/* ── Page Wrap ── */
+.page-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 5%;
+}
+
+/* ── Page Header ── */
+.page-header { text-align: center; margin-bottom: 3.5rem; }
+.page-header .label {
+  font-size: 0.72rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.8rem;
+  display: block;
+  font-weight: 500;
+}
+.page-header h2 {
+  font-family: 'Clash Display', sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -0.03em;
+}
+
+/* ── Buttons ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.8rem;
+  border-radius: 10px;
+  font-family: 'Cabinet Grotesk', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: none;
+  text-decoration: none;
+  transition: all .25s;
+  border: none;
+  letter-spacing: 0.02em;
+}
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent), #9b6bff);
+  color: #fff;
+  box-shadow: 0 0 30px rgba(124,111,255,0.25);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 40px rgba(124,111,255,0.4);
+}
+.btn-ghost {
+  background: var(--glass);
+  color: var(--text);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(12px);
+}
+.btn-ghost:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(124,111,255,0.06);
+}
+
+/* ── Footer ── */
+footer {
+  text-align: center;
+  padding: 2rem 5%;
+  border-top: 1px solid var(--glass-border);
+  color: var(--muted);
+  font-size: 0.76rem;
+  position: relative;
+  z-index: 1;
+}
+footer a { color: var(--accent); text-decoration: none; }
+
+/* ── Scroll Hint ── */
+.scroll-hint {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--muted);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  animation: fadeUp 1s ease .8s forwards;
+  opacity: 0;
+  z-index: 2;
+}
+.scroll-mouse {
+  width: 20px; height: 32px;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  padding-top: 6px;
+}
+.scroll-wheel {
+  width: 3px; height: 6px;
+  background: var(--accent);
+  border-radius: 2px;
+  animation: scroll-wheel 1.5s ease infinite;
+}
+
+/* ── Keyframes ── */
+@keyframes pulse-dot {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(124,111,255,0.6); }
+  50%       { box-shadow: 0 0 0 6px rgba(124,111,255,0); }
+}
+@keyframes gradient-shift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes scroll-wheel {
+  0%   { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(8px); opacity: 0; }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px) translateX(-50%); }
+  to   { opacity: 1; transform: translateY(0) translateX(-50%); }
+}
+@keyframes fadeUpEl {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-10px); }
+}
+
+/* ── Entrance animation helpers ── */
+.fu { animation: fadeUpEl .65s ease forwards; }
+.d1 { animation-delay: .05s; opacity: 0; }
+.d2 { animation-delay: .15s; opacity: 0; }
+.d3 { animation-delay: .25s; opacity: 0; }
+.d4 { animation-delay: .35s; opacity: 0; }
+.d5 { animation-delay: .45s; opacity: 0; }
+
+/* ── Responsive ── */
+@media (max-width: 780px) {
+  .page-wrap { padding: 3rem 5%; }
+}

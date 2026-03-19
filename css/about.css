@@ -1,0 +1,148 @@
+/* ==============================================
+   about.css  —  About section tabs
+   ============================================== */
+
+.about-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--glass-border);
+  margin-bottom: 3rem;
+  justify-content: center;
+}
+.tab-btn {
+  padding: 0.75rem 1.8rem;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--muted);
+  font-family: 'Cabinet Grotesk', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: none;
+  transition: all .2s;
+  margin-bottom: -1px;
+  letter-spacing: 0.04em;
+}
+.tab-btn.active { color: var(--white); border-bottom-color: var(--accent); }
+
+.tab-content        { display: none; }
+.tab-content.active { display: block; }
+
+/* About tab */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+.about-bio p { color: var(--muted); margin-bottom: 1rem; font-size: 0.93rem; line-height: 1.8; }
+.about-bio p strong { color: var(--text); }
+
+.info-list { list-style: none; margin-top: 1.5rem; }
+.info-list li {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 0.75rem;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--glass-border);
+  font-size: 0.84rem;
+}
+.info-list li:first-child { border-top: 1px solid var(--glass-border); }
+.info-key { color: var(--muted); font-weight: 500; }
+.info-val { color: var(--white); font-weight: 600; }
+.info-val a { color: var(--accent); text-decoration: none; }
+
+/* Skills tab */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.25rem;
+}
+.skill-card {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 1.4rem;
+  transition: border-color .25s, transform .25s;
+  backdrop-filter: blur(12px);
+}
+.skill-card:hover { border-color: rgba(124,111,255,0.3); transform: translateY(-3px); }
+.skill-card-icon  { font-size: 1.4rem; margin-bottom: 0.75rem; }
+.skill-card h4 {
+  font-family: 'Clash Display', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.9rem;
+}
+.skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.skill-tag {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--glass-border);
+  border-radius: 6px;
+  padding: 0.25rem 0.65rem;
+  font-size: 0.73rem;
+  color: var(--text);
+}
+
+/* Languages tab */
+.lang-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+.lang-item {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 1.1rem 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: border-color .2s;
+}
+.lang-item:hover { border-color: rgba(124,111,255,0.3); }
+.lang-icon { font-size: 1.4rem; flex-shrink: 0; }
+.lang-name { font-weight: 700; font-size: 0.85rem; color: var(--white); margin-bottom: 0.3rem; }
+.lang-bar-bg { height: 3px; background: rgba(255,255,255,0.06); border-radius: 2px; width: 100%; }
+.lang-bar    { height: 3px; border-radius: 2px; transition: width 1s ease; }
+.lang-level  { font-size: 0.68rem; color: var(--muted); margin-top: 0.3rem; }
+
+/* Education tab */
+.edu-timeline { position: relative; padding-left: 2rem; }
+.edu-timeline::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 8px; bottom: 8px;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--accent), transparent);
+}
+.edu-item {
+  position: relative;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  transition: border-color .25s;
+}
+.edu-item:hover { border-color: rgba(124,111,255,0.25); }
+.edu-item::before {
+  content: '';
+  position: absolute;
+  left: -2rem; top: 1.8rem;
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 3px rgba(124,111,255,0.15), 0 0 12px rgba(124,111,255,0.4);
+}
+.edu-year  { font-size: 0.72rem; color: var(--accent); font-weight: 600; letter-spacing: 0.12em; margin-bottom: 0.35rem; }
+.edu-name  { font-family: 'Clash Display', sans-serif; font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 0.2rem; }
+.edu-place { color: var(--muted); font-size: 0.84rem; }
+
+@media (max-width: 780px) {
+  .about-grid { grid-template-columns: 1fr; }
+}

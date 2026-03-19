@@ -1,0 +1,81 @@
+/* ==============================================
+   experience.css  —  Work experience cards
+   ============================================== */
+
+.exp-card {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 18px;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  backdrop-filter: blur(12px);
+  transition: border-color .25s;
+}
+.exp-card:hover { border-color: rgba(124,111,255,0.25); }
+
+.exp-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+.exp-title {
+  font-family: 'Clash Display', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--white);
+}
+.exp-badge {
+  font-size: 0.72rem;
+  color: var(--accent);
+  background: rgba(124,111,255,0.1);
+  border: 1px solid rgba(124,111,255,0.22);
+  border-radius: 20px;
+  padding: 0.3rem 0.85rem;
+  font-weight: 600;
+}
+.exp-company {
+  color: var(--muted);
+  font-size: 0.86rem;
+  margin-bottom: 1.5rem;
+}
+.exp-company a {
+  color: var(--accent3);
+  text-decoration: none;
+  font-size: 0.78rem;
+}
+.exp-company a:hover { text-decoration: underline; }
+
+.exp-list { list-style: none; }
+.exp-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.exp-list li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0.6rem;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 6px rgba(124,111,255,0.5);
+}
+.exp-list li strong { color: var(--text); }
+
+.metric-chip {
+  display: inline-block;
+  background: rgba(0,229,255,0.08);
+  border: 1px solid rgba(0,229,255,0.2);
+  border-radius: 5px;
+  padding: 0.1rem 0.5rem;
+  font-size: 0.78rem;
+  color: var(--accent3);
+  font-weight: 700;
+  margin: 0 0.1rem;
+}
