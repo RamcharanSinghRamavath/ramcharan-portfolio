@@ -77,11 +77,13 @@
           <div class="stat-label">Technologies<br/>mastered</div>
         </div>
         <div>
-          <div class="stat-num" data-target="29" data-suffix="+">0+</div>
+          <!-- ✅ LIVE: auto-updated from GitHub API -->
+          <div class="stat-num" id="stat-repos" data-target="29" data-suffix="+">29+</div>
           <div class="stat-label">GitHub<br/>repositories</div>
         </div>
         <div>
-          <div class="stat-num" data-target="317" data-suffix="+">0+</div>
+          <!-- ✅ LIVE: auto-updated from GitHub contributions API -->
+          <div class="stat-num" id="stat-contributions" data-target="317" data-suffix="+">317+</div>
           <div class="stat-label">Github<br/>Contributions</div>
         </div>
         <div>
@@ -158,7 +160,7 @@
       </div>
       <div class="gh-curr-item">
         <div class="gh-curr-emoji">💬</div>
-        <div><div class="gh-curr-label">Ask me about</div><div class="gh-curr-val">Python, AI/ Machine Learning Fundamentals, Deep Learning & Neural Networks, Power BI, Excel, Computer Vision, C/C++, MySQL, NLP, LLMs, Agentic AI</div></div>
+        <div><div class="gh-curr-label">Ask me about</div><div class="gh-curr-val">Python, AI/ Machine Learning Fundamentals, Deep Learning &amp; Neural Networks, Power BI, Excel, Computer Vision, C/C++, MySQL, NLP, LLMs, Agentic AI</div></div>
       </div>
       <div class="gh-curr-item">
         <div class="gh-curr-emoji">📫</div>
@@ -359,25 +361,25 @@
     <div class="projects-grid">  
 
       <!-- MediSight AI -->
-<div class="project-card">
-  <div class="project-thumb">
-    <img src="assets/Medisight_Prediction system.png" alt="MediSight AI Readmission Prediction"/>
-  </div>
-  <div class="project-body">
-    <div class="project-title">MediSight AI — Clinical Readmission Prediction</div>
-    <div class="project-desc">End-to-end clinical ML pipeline predicting 30-day diabetic hospital readmission on 101,766 real EHR encounters. TabNet deep learning + SHAP explainability + fairness audit across 5 demographic groups — ROC-AUC 0.763, deployed as REST API with p95 latency &lt;12ms.</div>
-    <div class="project-footer">
-      <div class="project-tags">
-        <span class="project-tag">Python</span>
-        <span class="project-tag">PyTorch</span>
-        <span class="project-tag">Scikit-learn</span>
-        <span class="project-tag">SHAP</span>
-        <span class="project-tag">FastAPI</span>
+      <div class="project-card">
+        <div class="project-thumb">
+          <img src="assets/Medisight_Prediction system.png" alt="MediSight AI Readmission Prediction"/>
+        </div>
+        <div class="project-body">
+          <div class="project-title">MediSight AI — Clinical Readmission Prediction</div>
+          <div class="project-desc">End-to-end clinical ML pipeline predicting 30-day diabetic hospital readmission on 101,766 real EHR encounters. TabNet deep learning + SHAP explainability + fairness audit across 5 demographic groups — ROC-AUC 0.763, deployed as REST API with p95 latency &lt;12ms.</div>
+          <div class="project-footer">
+            <div class="project-tags">
+              <span class="project-tag">Python</span>
+              <span class="project-tag">PyTorch</span>
+              <span class="project-tag">Scikit-learn</span>
+              <span class="project-tag">SHAP</span>
+              <span class="project-tag">FastAPI</span>
+            </div>
+            <a class="project-link" href="https://github.com/RamcharanSinghRamavath/-MediSight-AI-Diabetic-Readmission-Prediction-System" target="_blank">GitHub ↗</a>
+          </div>
+        </div>
       </div>
-      <a class="project-link" href="https://github.com/RamcharanSinghRamavath/-MediSight-AI-Diabetic-Readmission-Prediction-System" target="_blank">GitHub ↗</a>
-    </div>
-  </div>
-</div>
 
       <!-- LLM NL→SQL -->
       <div class="project-card">
@@ -537,23 +539,22 @@
       </div>
 
       <form class="contact-form" action="https://formspree.io/f/meernjlv" method="POST">
-  <div class="form-group">
-    <label>Your Name</label>
-    <input type="text" name="name" placeholder="Your name" required/>
-  </div>
-  <div class="form-group">
-    <label>Email</label>
-    <input type="email" name="email" placeholder="your@email.com" required/>
-  </div>
-  <div class="form-group">
-    <label>Message</label>
-    <textarea name="message" placeholder="Hi Ramcharan, I'd love to work with you on..." required></textarea>
-  </div>
-  <button type="submit" class="btn btn-primary">Send Message ✉</button>
-  <div id="form-ok">✅ Message sent! I'll get back to you soon.</div>
-</form>
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" name="name" placeholder="Your name" required/>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" name="email" placeholder="your@email.com" required/>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea name="message" placeholder="Hi Ramcharan, I'd love to work with you on..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send Message ✉</button>
+        <div id="form-ok">✅ Message sent! I'll get back to you soon.</div>
+      </form>
 
-   
     </div>
 
   </div>
@@ -575,6 +576,14 @@
 <script src="js/animations.js"></script>
 <script src="js/form.js"></script>
 <script src="js/threejs-bg.js"></script>
+
+<!--
+  ✅ github-stats.js
+  Automatically fetches live repo count + yearly contributions
+  from GitHub API every time the page loads.
+  No manual updates ever needed — just push to GitHub and it reflects here.
+-->
+<script src="js/github-stats.js"></script>
 
 </body>
 </html>
