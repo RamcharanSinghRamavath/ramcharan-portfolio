@@ -68,7 +68,7 @@
   async function fetchContributions() {
     try {
       const res = await fetch(
-        `https://github-contributions-api.jogruber.de/v4/${GITHUB_USERNAME}?y=last`
+        `https://github-contributions-api.jogruber.de/v4/${GITHUB_USERNAME}?y=all`
       );
       if (!res.ok) throw new Error(`Contributions API ${res.status}`);
       const data = await res.json();
