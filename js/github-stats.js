@@ -1,17 +1,4 @@
-/**
- * github-stats.js
- * ─────────────────────────────────────────────────────────────
- * Automatically fetches live GitHub data (public repos count +
- * total yearly contributions) and updates the portfolio stats.
- *
- * HOW TO USE
- * ──────────
- * 1. Drop this file into your  js/  folder.
- * 2. Add ONE line just before </body> in index.html:
- *        <script src="js/github-stats.js"></script>
- *    (place it AFTER your existing <script> tags so the DOM is ready)
- * ─────────────────────────────────────────────────────────────
- */
+
 
 (function () {
   "use strict";
